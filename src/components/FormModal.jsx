@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 const FormModal = ({ task, isOpen, close }) => {
   const dispatch = useDispatch();
-
+  console.log(task);
   // form gönderilince
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +15,11 @@ const FormModal = ({ task, isOpen, close }) => {
 
     // inputlardaki verileri bir nesne haline getir
     const taskData = Object.fromEntries(formData.entries());
-
     if (!task) {
       // reducer'a yeni görev ekleme haberi ver
       dispatch(addTask(taskData));
     } else {
+      console.log(task);
       // reducer'a güncelleme haberi ver.
       dispatch(
         editTask({
@@ -41,15 +41,15 @@ const FormModal = ({ task, isOpen, close }) => {
 
       <Modal.Body>
         <Form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
-          {inputs.map((prop) => (
-            <Form.Group>
+          {inputs.map((prop, i) => (
+            <Form.Group key={i}>
               <Form.Label>{prop.label}</Form.Label>
               <Form.Control
                 name={prop.name}
                 placeholder={prop.holder}
                 type={prop.type}
                 required
-                defaultValue={task && task[prop.name]}
+                defaultValue={task?.[prop.name]}
               />
             </Form.Group>
           ))}

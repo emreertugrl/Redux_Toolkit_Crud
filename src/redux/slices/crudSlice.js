@@ -25,7 +25,7 @@ const crudSlice = createSlice({
     },
     editTask: (state, action) => {
       // düzenlecek olan
-      const i = state.tasks.findIndex((task) => task.id === action.payload);
+      const i = state.tasks.findIndex((task) => task.id === action.payload.id);
       state.tasks.splice(i, 1, action.payload);
     },
   },
