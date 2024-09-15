@@ -57,7 +57,7 @@ To get the project running on your local machine:
 
 ## Live Demo
 
-<a href="https://menuapplication.netlify.app/">Netlify Project View</a>
+<a href="https://reduxtoolkitcrudd.netlify.app/">Netlify Project View</a>
 
 ## API's
 
